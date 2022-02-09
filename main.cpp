@@ -6,8 +6,15 @@ using namespace std;
 class Solution {
  public:
   int bitwiseComplement(int n) {
-    // FIXME
-    return 0;
+    if (0 == n) { return 1; }
+
+    int res = 0;
+    for (int i = 0; n; ++i) {
+      res |= ( ~(n & 0x1) & 0x1 ) << i;
+      n = n >> 1;
+    }
+
+    return res;
   }
 };
 
